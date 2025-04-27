@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style6.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body class="fade-in">
+    <header>
+        <nav>
+            <a href="index.php"><img src="images/Capture2.png"></a>
+            <div class="nav-links" id="navLinks">
+                <ul>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="About.html">ABOUT</a></li>
+                    <li><a href="Services.html">SERVICES</a></li>
+                    <li><a href="Blog.php">BLOG</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="shop.php">SHOP</a></li>
+                    <li>
+                        <span class="nav-link theme-toggle">
+                            <i class="fa fa-sun"></i>
+                            <i class="fa fa-moon"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+       <section class="contact">
+        <div class="container">
+            <div class="left">
+                <div class="form-wrapper">
+                    <div class="contact-heading">
+
+                        <h1>A Question? Contact Us<span>.</span></h1>
+                        <p class="text">Or reach us via : <a href="mailto:AllianceDemocratique@gmail.com">AllianceDemocratique@gmail.com</a></p>
+                    </div>
+                    <form action="includes/formhandler.php" method="post" class="contact-form" enctype="multipart/form-data">
+                        <div class="input-wrap">
+                            <input id="firstname" type="text" class="contact-input" autocomplete="off" name="firstname" required>
+                            <label>First Name</label>
+                            <i class="icon fa fa-address-card"></i>
+                        </div>
+                    
+                        <div class="input-wrap">
+                            <input id="lastname" type="text" class="contact-input" autocomplete="off" name="lastname" required>
+                            <label>Last Name</label>
+                            <i class="icon fa fa-address-card"></i>
+                        </div>
+                    
+                        <div class="input-wrap w-100">
+                            <input id="email" type="email" class="contact-input" autocomplete="off" name="email" required>
+                            <label>Email</label>
+                            <i class="icon fa fa-envelope"></i>
+                        </div>
+
+                        <div class="input-wrap textarea w-100">
+                            <textarea name="Message" autocomplete="off" class="contact-input" required></textarea>
+                            <label>Message</label>
+                            <i class="icon fa fa-inbox"></i>
+                        </div>
+                        <div class="contact-buttons">
+                            <button class="btn upload">
+                                <span>
+                                    <i class="fa fa-paperclip"></i> Add attachment
+                                </span>
+                                <input id="file" type="file" name="file">
+                            </button>
+                            <input type="submit" value="Send message" class="btn">
+                        </div>
+                    </form>                    
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="image-wrapper">
+                    <img src="images/contact.jpg" class="img">
+                
+                    <div class="wave-wrap">
+                        <svg class="wave" viewBox="0 0 783 1536" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path id="wave"
+                                d="M236.705 1356.18C200.542 1483.72 64.5004 1528.54 1
+                                1535V1H770.538C793.858 63.1213 797.23 196.197 624.165 231.
+                                531C407.833 275.698 274.374 331.715 450.884 568.709C627.393
+                                805.704 510.079 815.399 347.561 939.282C185.043 1063.17 281.
+                                908 1196.74 236.705 1356.18Z" />
+                        </svg>
+                    </div>
+                    <svg class="dashed-wave" viewBox="0 0 345 877" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path id="dashed-wave" d="M0.5 876C25.6667 836.167 73.2 739.8 62 673C48 589.5 35.5 499.5 125.5 462C215.5 424.5 150 365 87 333.5C24 302 44 237.5 125.5 213.5C207 189.5 307 138.5 246 87C185 35.5 297 1 344.5 1"/>
+                    </svg>                  
+                </div>
+            </div>
+        </div>
+       </section> 
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
+    <script>
+        const inputs = document.querySelectorAll(".contact-input");
+        const toggleBtn = document.querySelector(".theme-toggle");
+        const allElements = document.querySelectorAll("*");
+
+        toggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+
+            allElements.forEach((el) => {
+                el.classList.add("transition");
+                setTimeout(() => {
+                    el.classList.remove("transition");
+                }, 1000);
+            });
+
+            // Change the text color of the navigation links
+            const navLinks = document.querySelectorAll('.nav-links ul li a');
+            if(document.body.classList.contains('dark')){
+                navLinks.forEach(link => {
+                    link.style.color = "#fff";
+                });
+            } else {
+                navLinks.forEach(link => {
+                    link.style.color = "#000";
+                });
+            }
+        });
+
+        inputs.forEach((ipt) => {
+            ipt.addEventListener("focus", () => {
+                ipt.parentNode.classList.add("focus");
+                ipt.parentNode.classList.add("not-empty");
+            });
+            ipt.addEventListener("blur", () => {
+                if(ipt.value == ""){
+                    ipt.parentNode.classList.remove("not-empty");
+                }
+                ipt.parentNode.classList.remove("focus");
+            });
+        });
+
+         document.addEventListener("DOMContentLoaded", function() {
+            const anchors = document.querySelectorAll('a[href^="http"], a[href^="about.html"], a[href^="services.html"], a[href^="Blog.php"], a[href^="contact.html"]');
+            const body = document.body;
+
+            anchors.forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetUrl = this.getAttribute('href');
+
+                    body.classList.add('fade-out');
+
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 500);
+                });
+            });
+
+            body.classList.add('fade-in'); 
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="fade-in">
+    <section class="header">
+        <nav>
+            <a href="index.php"><img src="images/Capture2.PNG"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="Blog.php">BLOG</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="shop.php">SHOP</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
+
+    <div class="section">
+        <div class="title">
+            <h1>Our Services</h1>
+        </div>
+        <div class="services">
+            <div class="card">
+                <div class="icon">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <h2>Planning</h2>
+                <p>Notre parti politique s'engage à offrir une planification stratégique et efficace pour atteindre nos objectifs et répondre aux attentes de nos concitoyens. Nous développons des plans à long terme alignés sur notre vision et nos valeurs, tout en organisant des campagnes électorales coordonnées et en mobilisant nos ressources pour maximiser l'impact. Nous créons des initiatives pour engager activement les citoyens, renforcer la participation civique et promouvoir la cohésion sociale. En élaborant des projets spécifiques pour répondre aux besoins des différentes communautés, nous assurons le suivi et l'évaluation des progrès pour garantir transparence et efficacité. </p>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fa fa-wrench"></i>
+                </div>
+                <h2>Renovation</h2>
+                <p>Alliance Démocratique s'engage à revitaliser nos communautés à travers des projets de rénovation et de développement urbain. Nous modernisons les infrastructures, créons et entretenons des espaces publics et verts, et promouvons un développement durable. En impliquant directement les citoyens dans le processus de planification et d'exécution, nous nous assurons que nos initiatives répondent aux besoins réels des communautés. Notre objectif est de transformer les quartiers en difficulté en centres dynamiques d'activité économique et sociale, améliorant ainsi la qualité de vie de tous les citoyens.</p>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fa fa-handshake-o"></i>
+                </div>
+                <h2>Support</h2>
+                <p>Alliance Démocratique offre un support complet et des services en ligne pour garantir que chaque citoyen puisse s'impliquer et accéder aux ressources dont il a besoin. Nous fournissons une assistance en ligne 24/7, des forums interactifs, des webinaires éducatifs et une base de connaissances complète pour répondre aux questions et guider les citoyens dans leurs démarches. Notre plateforme en ligne permet de suivre les initiatives en cours, de participer à des consultations publiques et de soumettre des propositions. Grâce à notre support et à nos services en ligne, nous facilitons l'engagement citoyen et assurons une communication transparente et efficace.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="footer fade-in">
+        <p>Alliance Démocratique : Unir les citoyens pour construire un avenir juste et inclusif.</p>
+        <div class="icons">
+            <a href="https://web.facebook.com/profile.php?id=61560315111584" class="fa fa-facebook"></a>
+            <a href="https://www.linkedin.com/in/alliance-d%C3%A9mocratique-16579a30b/" class="fa fa-linkedin"></a>
+            <a href="https://x.com/A_Democratique" class="fa fa-twitter"></a>
+        </div>
+        <p>Made with <i class="fa fa-heart-o"></i> by Miahi Othmane, Saad Ilias, Chaffaa Mohammed</p>
+    </section>
+
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const anchors = document.querySelectorAll('a[href^="http"], a[href^="about.html"], a[href^="services.html"], a[href^="Blog.php"], a[href^="contact.html"]');
+            const body = document.body;
+
+            anchors.forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetUrl = this.getAttribute('href');
+
+                    body.classList.add('fade-out');
+
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 500);
+                });
+            });
+
+            body.classList.add('fade-in');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>#more {display: none;}</style> 
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="fade-in">
+    <section class="header">
+        <nav>
+            <a href="index.php"><img src="images/Capture2.png"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="Blog.php">BLOG</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="shop.php">SHOP</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
+
+    <div class="heading">
+        <h1>About us</h1>
+        <p>Alliance Démocratique est un mouvement politique dédié à la promotion de la démocratie, de l'unité et de l'inclusivité au Maroc. Notre mission est de rassembler les citoyens de toutes origines pour travailler ensemble à la construction d'un avenir plus juste et équitable. Nous croyons fermement en la participation active de chaque individu dans le processus démocratique, et nous nous engageons à défendre les droits et les intérêts de tous.</p>
+    </div>
+    <div class="container">
+        <section class="about">
+            <div class="about-img">
+                <img src="images/about.PNG">
+                <div class="read-more-wrapper">
+                    <button onclick="myFunction()" id="myBtn" class="read-more">Read more</button>
+                </div>
+            </div>
+            <div class="about-content">
+                <h2>Empowering Our Future</h2>
+                <p>Chez Alliance Démocratique, nous croyons fermement en la puissance de chaque citoyen pour façonner un avenir meilleur et plus lumineux. Notre organisation se consacre à l'empowerment des individus, car nous savons que c'est par l'engagement collectif que nous pouvons provoquer de véritables changements. Nos initiatives sont soigneusement conçues pour encourager l'engagement civique à tous les niveaux de la société<span id="dots">...</span><span id="more">
+                    Nous promouvons la participation active en offrant des plateformes pour l'expression des idées et des préoccupations des citoyens. Grâce à des forums communautaires, des ateliers éducatifs et des campagnes de sensibilisation, nous veillons à ce que chaque voix soit entendue et prise en compte dans le processus décisionnel. Il est essentiel pour nous que chaque membre de notre communauté sente qu'il ou elle a une place et un rôle à jouer dans la construction de notre société.
+                    Ensemble, nous nous efforçons de bâtir une société plus équitable et inclusive, où la diversité est non seulement respectée mais également célébrée. Nous croyons que chaque personne, indépendamment de son origine, de son statut socio-économique ou de ses croyances, possède le potentiel de contribuer de manière significative au bien-être collectif. Nos programmes sont axés sur l'inclusion sociale, l'égalité des chances et le soutien aux initiatives locales qui favorisent la prospérité pour tous.
+                    Chez Alliance Démocratique, nous envisageons un avenir où chacun a la possibilité de réaliser son plein potentiel. Nous travaillons sans relâche pour créer des opportunités de développement personnel et professionnel, en mettant l'accent sur l'éducation, la formation et l'accès aux ressources nécessaires pour prospérer. Ensemble, en unissant nos forces et en valorisant les talents et les compétences de chaque individu, nous pouvons bâtir un monde plus juste et plus prospère pour tous.</span></p>
+            </div>
+        </section>
+    </div>
+
+    <section class="footer fade-in">
+        <p>Alliance Démocratique : Unir les citoyens pour construire un avenir juste et inclusif.</p>
+        <div class="icons">
+            <a href="https://web.facebook.com/profile.php?id=61560315111584" class="fa fa-facebook"></a>
+            <a href="https://www.linkedin.com/in/alliance-d%C3%A9mocratique-16579a30b/" class="fa fa-linkedin"></a>
+            <a href="https://x.com/A_Democratique" class="fa fa-twitter"></a>
+        </div>
+        <p>Made with <i class="fa fa-heart-o"></i> by Miahi Othmane, Saad Ilias, Chaffaa Mohammed</p>
+    </section>
+
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+        function hideMenu(){
+            navLinks.style.right = "-200px";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const anchors = document.querySelectorAll('a[href^="http"], a[href^="about.html"], a[href^="services.html"], a[href^="Blog.php"], a[href^="contact.html"]');
+            const body = document.body;
+
+            anchors.forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetUrl = this.getAttribute('href');
+
+                    body.classList.add('fade-out');
+
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 500);
+                });
+            });
+
+            body.classList.add('fade-in');
+        });
+
+        function myFunction() {
+        var dots = document.getElementById("dots");
+        var moreText = document.getElementById("more");
+        var btnText = document.getElementById("myBtn");
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more";
+            moreText.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less";
+            moreText.style.display = "inline";
+        }
+        }
+    </script>
+</body>
+</html>

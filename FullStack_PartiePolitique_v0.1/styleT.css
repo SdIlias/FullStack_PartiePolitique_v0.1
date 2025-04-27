@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; 
+}
+
+header img {
+    width: 150px;
+    margin-left: 3%;
+} 
+
+.transition {
+    transition: 1s cubic-bezier(0.4, 0.1, 0.4, 1) !important;
+}
+
+a {
+    text-decoration: none;
+}
+.dark .background {
+    opacity: 1;
+}
+
+.contact {
+    overflow: hidden;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding-top: 50px;
+}
+
+.contact-heading {
+    text-align: center;
+}
+
+.contact-heading h1 {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 3.5rem;
+    line-height: 0.9;
+    margin-bottom: 1.2rem;
+}
+.contact-heading p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.contact-heading h1 span {
+    color: var(--main-color);
+}
+
+.contact-heading .checkmark-image {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: #0b0b0b;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: darkorange;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
